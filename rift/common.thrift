@@ -4,6 +4,7 @@
 
 
 namespace py common
+namespace rs models
 
 /** @note MUST be interpreted in implementation as unsigned 64 bits.
  */
@@ -190,13 +191,13 @@ enum AddressFamilyType {
 struct IPv4PrefixType {
     1: required IPv4Address    address;
     2: required PrefixLenType  prefixlen;
-} 
+} (python.immutable = "")
 
 /** IPv6 prefix type. */
 struct IPv6PrefixType {
     1: required IPv6Address    address;
     2: required PrefixLenType  prefixlen;
-} 
+} (python.immutable = "")
 
 /** IP address type. */
 union IPAddressType {
@@ -204,7 +205,7 @@ union IPAddressType {
     1: optional IPv4Address   ipv4address;
     /** Content is IPv6 */
     2: optional IPv6Address   ipv6address;
-} 
+} (python.immutable = "")
 
 /** Prefix advertisement.
 
@@ -217,7 +218,7 @@ union IPAddressType {
 union IPPrefixType {
     1: optional IPv4PrefixType   ipv4prefix;
     2: optional IPv6PrefixType   ipv6prefix;
-} 
+} (python.immutable = "")
 
 /** Sequence of a prefix in case of move.
  */
@@ -284,6 +285,51 @@ enum   KVTypes {
     OUI          = 3,
 }
 
+typedef  i16    FabricIDType
 
+const FabricIDType   undefined_fabric_id   = 0
+const FabricIDType   default_fabric_id     = 1
 
+/** <auto-evpn> */
+/** EVPN Fabric ID */
+
+const    bool   default_acting_auto_evpn_dci_when_tof         = false
+
+enum AutoEVPNModel {
+    ERB_VLAN_BUNDLE = 0,
+}
+
+const AutoEVPNModel default_autoevpn_model = AutoEVPNModel.ERB_VLAN_BUNDLE
+
+const bool AUTO_EVPN_SUPPORT_DEFAULT = false
+
+/** </auto-evpn> */
+
+/** <auto-flood-reflection> */
+
+enum AutoFRModel {
+    /** Full Mesh of L1 tunnel shortcuts, only model supported currently with auto FR */
+    NoTunnelMode    = 0,
+    TunnelMode      = 1,
+}
+
+const AutoFRModel default_autofr_model = AutoFRModel.NoTunnelMode
+
+typedef i32          FloodReflectionClusterIDType
+
+/* maybe used in future for special purposes */
+const FloodReflectionClusterIDType  IllegalClusterID = 0
+const FloodReflectionClusterIDType  DefaultClusterID  = 1
+
+/** preference to become FR, higher is better */
+typedef i32          FloodReflectionPreferenceType
+
+const   FloodReflectionPreferenceType MinFloodReflectionPreference = 0
+
+const bool AUTO_FLOOD_REFLECTION_SUPPORT = false
+/** </auto-flood-reflection> */
+
+/** <southbound KVs> */
+
+/** </southbound KVs> */
 

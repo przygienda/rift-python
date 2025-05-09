@@ -2,9 +2,9 @@
 
 ## Supported version
 
-RIFT draft version: [draft-ietf-rift-rift-12](https://tools.ietf.org/pdf/draft-ietf-rift-rift-12.pdf)
+RIFT [RFC 9692](https://www.rfc-editor.org/rfc/rfc9692.pdf)
 
-Thrift data model version: 4.1
+Thrift data model version: 6.1 (w/o auto-evpn or auto-fabric support)
 
 ## Adjacencies
 

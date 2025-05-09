@@ -2,8 +2,7 @@
 
 # Routing In Fat Trees (RIFT)
 
-This repository contains a Python implementation of the Routing In Fat Trees (RIFT) protocol specified in Internet Draft (ID)
-[draft-draft-rift-15](https://www.ietf.org/archive/id/draft-ietf-rift-rift-15.pdf)
+This repository contains a Python implementation of the Routing In Fat Trees (RIFT) protocol specified in [RFC 9692](https://www.rfc-editor.org/rfc/rfc9692.pdf)
 
 The code is currently still a work in progress (see Feature List below for the status).
 

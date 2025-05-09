@@ -29,6 +29,11 @@ Generate Python code:
 thrift --gen py -out . common.thrift
 thrift --gen py -out . encoding.thrift
 
+Observe that after generating the code due to python 3.10 having
+changed lots of previous types to immutables the code diffs
+to __init__.py have to be restored to allow mutations to
+ttypes classes again.
+
 *** Helpful commands for debugging
 
 Detailed listing of UDP sockets:
